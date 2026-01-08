@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AirportAutomation.UI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:AirportAutomation.UI.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Title="AirportAutomation.UI">
+
+    <TabBar x:Name="MainTabs">
+        <ShellContent
+            x:Name="HomeTab"
+            Title="Home"
+            Icon="home.svg"
+            ContentTemplate="{DataTemplate pages:HomePage}"
+            Route="HomePage" />
+
+        <ShellContent
+            x:Name="FlightsTab"
+            Title="Flights"
+            Icon="flight.svg"
+            ContentTemplate="{DataTemplate pages:MainPage}"
+            Route="MainPage" />
+
+        <ShellContent
+            x:Name="GateTab"
+            Title="Gates"
+            Icon="gate.svg"
+            ContentTemplate="{DataTemplate pages:GatePage}"
+            Route="GatePage" />
+
+        <ShellContent
+            x:Name="PassengerTab"
+            Title="Check-In"
+            Icon="passenger.svg"
+            ContentTemplate="{DataTemplate pages:PassengerPage}"
+            Route="PassengerPage" />
+
+        <ShellContent
+            x:Name="AssistantTab"
+            Title="AI"
+            Icon="assistant.svg"
+            ContentTemplate="{DataTemplate pages:AssistantPage}"
+            Route="AssistantPage" />
+
+        <ShellContent
+            x:Name="BookingTab"
+            Title="Booking"
+            Icon="booking.svg"
+            ContentTemplate="{DataTemplate pages:BookingPage}"
+            Route="BookingPage" />
+
+        <ShellContent
+            x:Name="AdminTab"
+            Title="Admin"
+            Icon="admin.svg"
+            ContentTemplate="{DataTemplate pages:AdminPage}"
+            Route="AdminPage" />
+
+        <ShellContent
+            x:Name="MapTab"
+            Title="Map"
+            Icon="map.svg"
+            ContentTemplate="{DataTemplate pages:MapPage}"
+            Route="MapPage" />
+    </TabBar>
+
+</Shell>

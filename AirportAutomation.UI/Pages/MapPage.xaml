@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirportAutomation.UI.Pages.MapPage"
+             Title="Terminal Map">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*" Padding="16" RowSpacing="10">
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Terminal Haritası" FontSize="24" FontAttributes="Bold" />
+                <Label Text="Mock konumlar ve yol tarifi" FontSize="12" TextColor="Gray" />
+            </VerticalStackLayout>
+
+            <CollectionView x:Name="LocationView" Grid.Row="1" SelectionMode="Single" SelectionChanged="OnLocationSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#ccc" CornerRadius="8" Padding="10" Margin="0,6">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                <Label Text="{Binding Description}" FontSize="12" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

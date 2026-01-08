@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirportAutomation.UI.Pages.AssistantPage"
+             Title="AI Assistant">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*,Auto" BackgroundColor="#0B1220">
+            <ScrollView Grid.Row="0">
+                <CollectionView x:Name="ChatView"
+                                SelectionMode="None"
+                                ItemsLayout="VerticalList"
+                                Margin="12"
+                                BackgroundColor="Transparent">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Spacing="6">
+                                <HorizontalStackLayout HorizontalOptions="Start">
+                                    <Frame Padding="12"
+                                           BackgroundColor="#1E293B"
+                                           CornerRadius="12"
+                                           HasShadow="False"
+                                           BorderColor="#2D3A52">
+                                        <VerticalStackLayout Spacing="4">
+                                            <Label Text="Sen" FontAttributes="Bold" TextColor="White" FontSize="13" />
+                                            <Label Text="{Binding UserMessage}" TextColor="White" FontSize="14" />
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout HorizontalOptions="End">
+                                    <Frame Padding="12"
+                                           BackgroundColor="#0EA5E9"
+                                           CornerRadius="12"
+                                           HasShadow="False"
+                                           BorderColor="#38BDF8">
+                                        <VerticalStackLayout Spacing="4">
+                                            <Label Text="AI" FontAttributes="Bold" TextColor="White" FontSize="13" />
+                                            <Label Text="{Binding AiResponse}" TextColor="White" FontSize="14" />
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </HorizontalStackLayout>
+
+                                <Label Text="{Binding CreatedAt, StringFormat='{}{0:dd.MM HH:mm}'}"
+                                       FontSize="10"
+                                       TextColor="#94A3B8"
+                                       HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+
+            <Grid Grid.Row="1" Padding="12" BackgroundColor="#0F172A" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                <Label x:Name="StatusLabel"
+                       Grid.ColumnSpan="2"
+                       Text="Hazır"
+                       FontSize="12"
+                       TextColor="#94A3B8"
+                       Margin="0,0,0,6" />
+                <Entry x:Name="QuestionEntry"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Placeholder="Sorunuzu yazın..."
+                       PlaceholderColor="#94A3B8"
+                       TextColor="White"
+                       BackgroundColor="#1E293B"
+                       HeightRequest="44"
+                       HorizontalOptions="FillAndExpand" />
+                <Button x:Name="SendButton"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="Gönder"
+                        Clicked="OnSendClicked"
+                        BackgroundColor="#0EA5E9"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="44"
+                        Padding="16,0" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

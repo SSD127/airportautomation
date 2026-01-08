@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirportAutomation.UI.Pages.PassengerPage"
+             Title="Check-In">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="{StaticResource SurfaceBase}">
+            <VerticalStackLayout Padding="16" Spacing="12" MaximumWidthRequest="900" HorizontalOptions="Center">
+                <VerticalStackLayout Spacing="4" Margin="0,0,0,12">
+                    <Label Text="PNR ile Check-In" Style="{StaticResource Title1}" />
+                    <Label Text="PNR, koltuk ve yardım işlemleri" Style="{StaticResource Caption}" />
+                </VerticalStackLayout>
+
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="8">
+                    <Entry x:Name="PnrEntry" Grid.Row="0" Grid.ColumnSpan="2" Placeholder="PNR kodu (örn: PNR1234)" />
+                    <Entry x:Name="SeatEntry" Grid.Row="1" Grid.Column="0" Placeholder="Koltuk (örn: 12A)" />
+                    <Button Text="Sorgula" Grid.Row="1" Grid.Column="1" Clicked="OnSearchClicked" />
+                </Grid>
+
+                <HorizontalStackLayout Spacing="8">
+                    <Button Text="Check-In" Clicked="OnCheckInClicked" />
+                    <Button Text="Yardım Çağır" Style="{StaticResource SecondaryButton}" Clicked="OnHelpClicked" />
+                </HorizontalStackLayout>
+
+                <Frame Style="{StaticResource Card}" BackgroundColor="{StaticResource SurfaceCard}">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Yolcu Bilgisi" Style="{StaticResource Title2}" />
+                        <HorizontalStackLayout Spacing="12">
+                            <Label Text="Yolcu:" Style="{StaticResource Caption}" />
+                            <Label x:Name="PassengerLabel" Text="-" Style="{StaticResource Body}" />
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="12">
+                            <Label Text="Uçuş:" Style="{StaticResource Caption}" />
+                            <Label x:Name="FlightLabel" Text="-" Style="{StaticResource Body}" />
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="12">
+                            <Label Text="Durum:" Style="{StaticResource Caption}" />
+                            <Label x:Name="StatusLabel" Text="-" Style="{StaticResource Body}" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Admin görünümü: tüm yolcular -->
+                <Frame x:Name="AdminListFrame" IsVisible="False" Style="{StaticResource Card}" BackgroundColor="{StaticResource SurfaceCard2}">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                            <Label Text="Tüm Yolcular" Style="{StaticResource Title2}" />
+                            <Button Text="Yenile" Clicked="OnAdminRefreshClicked" />
+                        </HorizontalStackLayout>
+                        <CollectionView x:Name="PassengerView" ItemsLayout="VerticalList" HeightRequest="300">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" Padding="8" ColumnSpacing="6">
+                                        <Label Grid.Row="0" Grid.Column="0"
+                                               Text="{Binding FullName}"
+                                               FontAttributes="Bold" />
+                                        <Label Grid.Row="0" Grid.Column="1"
+                                               Text="{Binding PnrCode}"
+                                               FontAttributes="Bold"
+                                               TextColor="#0EA5E9" />
+                                        <Label Grid.Row="1" Grid.Column="0"
+                                               Text="{Binding FlightNumber}"
+                                               FontSize="12"
+                                               TextColor="{StaticResource TextSecondary}" />
+                                        <Label Grid.Row="1" Grid.Column="1"
+                                               Text="{Binding SeatNumber}"
+                                               FontSize="12"
+                                               HorizontalOptions="End"
+                                               TextColor="{StaticResource TextSecondary}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirportAutomation.UI.Pages.LoginPage"
+             Title="Giriş">
+    <ContentPage.Content>
+        <Grid ColumnDefinitions="2*,3*" BackgroundColor="{StaticResource SurfaceBase}">
+            <!-- Sol hero -->
+            <Grid Padding="24" BackgroundColor="{StaticResource SurfaceOverlay}">
+                <Image Source="dotnet_bot.png" Aspect="AspectFill" Opacity="0.15" />
+                <VerticalStackLayout Spacing="16" VerticalOptions="Center">
+                    <Label Text="Tek panelde tüm terminal operasyonları" Style="{StaticResource Title1}" />
+                    <Label Text="Uçuş, kapı, check-in ve AI asistan tek yerde." Style="{StaticResource Body}" />
+                    <HorizontalStackLayout Spacing="8" Margin="0,8,0,0">
+                        <Frame Style="{StaticResource Badge}" BackgroundColor="#1D4ED8">
+                            <Label Text="Flights" TextColor="White" FontAttributes="Bold" />
+                        </Frame>
+                        <Frame Style="{StaticResource Badge}" BackgroundColor="#8B5CF6">
+                            <Label Text="Gates" TextColor="White" FontAttributes="Bold" />
+                        </Frame>
+                        <Frame Style="{StaticResource Badge}" BackgroundColor="#0EA5E9">
+                            <Label Text="Check-In" TextColor="White" FontAttributes="Bold" />
+                        </Frame>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Sağ form -->
+            <ScrollView Grid.Column="1">
+                <VerticalStackLayout Padding="32" Spacing="16" MaximumWidthRequest="520" HorizontalOptions="Center">
+                    <Label x:Name="TitleLabel" Text="Tekrar Hoşgeldiniz" Style="{StaticResource Title1}" HorizontalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTitleTapped" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="Devam etmek için giriş yapın." Style="{StaticResource Body}" />
+
+                    <!-- Yolcu -->
+                    <Frame Style="{StaticResource Card}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="Yolcu Girişi" Style="{StaticResource Title2}" />
+                            <Entry x:Name="PassengerUsernameEntry" Placeholder="Kullanıcı adı / e-posta" />
+                            <Entry x:Name="PassengerPasswordEntry" Placeholder="Şifre" IsPassword="True" />
+                            <HorizontalStackLayout Spacing="10">
+                                <Button Text="Giriş Yap" Clicked="OnPassengerLoginClicked" />
+                                <Button Text="Kayıt Ol" Style="{StaticResource SecondaryButton}" Clicked="OnPassengerRegisterClicked" />
+                            </HorizontalStackLayout>
+                            <Button Text="Google ile giriş (demo)" Style="{StaticResource SecondaryButton}" Clicked="OnGoogleLoginClicked" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Personel -->
+                    <Frame Style="{StaticResource Card}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="Personel Girişi" Style="{StaticResource Title2}" />
+                            <Entry x:Name="StaffUsernameEntry" Placeholder="Personel kullanıcı adı" />
+                            <Entry x:Name="StaffPasswordEntry" Placeholder="Personel parolası" IsPassword="True" />
+                            <Button Text="Personel olarak giriş" Clicked="OnStaffLoginClicked" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Admin (gizli) -->
+                    <Frame Style="{StaticResource Card}" x:Name="AdminFrame" IsVisible="False">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="Admin Girişi" Style="{StaticResource Title2}" />
+                            <Entry x:Name="AdminUsernameEntry" Placeholder="Admin kullanıcı adı" />
+                            <Entry x:Name="AdminPasswordEntry" Placeholder="Admin parolası" IsPassword="True" />
+                            <Button Text="Admin olarak giriş" Clicked="OnAdminLoginClicked" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Label x:Name="HintLabel" Text="Admin alanı için başlığa 5 kez dokunun." Style="{StaticResource Caption}" />
+                    <Label x:Name="ErrorLabel" TextColor="{StaticResource Danger}" FontSize="12" />
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

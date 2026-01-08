@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirportAutomation.UI.Pages.MainPage"
+             Title="Flights">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*" Padding="16" BackgroundColor="{StaticResource SurfaceBase}">
+            <VerticalStackLayout Spacing="4" Grid.Row="0" Margin="0,0,0,12">
+                <Label Text="Uçuşlar" Style="{StaticResource Title1}" />
+                <Label Text="Güncel uçuş bilgileri ve durumlar." Style="{StaticResource Caption}" />
+                <Button Text="Yenile" Clicked="OnRefreshClicked" WidthRequest="120" />
+            </VerticalStackLayout>
+
+            <CollectionView x:Name="FlightsView"
+                            Grid.Row="1"
+                            ItemsLayout="VerticalList"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="0,6"
+                               CornerRadius="14"
+                               Padding="14"
+                               BackgroundColor="{StaticResource SurfaceCard}"
+                               BorderColor="{StaticResource BorderLow}">
+                            <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="8">
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       Text="{Binding FlightNumber}"
+                                       FontAttributes="Bold"
+                                       FontSize="18"
+                                       TextColor="{StaticResource TextPrimary}" />
+                                <Frame Grid.Row="0" Grid.Column="1"
+                                       BackgroundColor="#1D4ED8"
+                                       Padding="10,6"
+                                       CornerRadius="10"
+                                       HasShadow="False">
+                                    <Label Text="{Binding Status}" TextColor="White" FontAttributes="Bold" FontSize="12" />
+                                </Frame>
+
+                                <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Spacing="12">
+                                    <Label Text="{Binding Origin}" TextColor="{StaticResource TextSecondary}" FontAttributes="Bold" />
+                                    <Label Text="→" TextColor="{StaticResource TextMuted}" />
+                                    <Label Text="{Binding Destination}" TextColor="{StaticResource TextPrimary}" FontAttributes="Bold" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Grid.Row="2" Grid.ColumnSpan="2" Spacing="16">
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="Kalkış" TextColor="{StaticResource TextMuted}" FontSize="12" />
+                                        <Label Text="{Binding DepartureTime, StringFormat='{}{0:dd.MM HH:mm}'}" TextColor="{StaticResource TextSecondary}" FontSize="12" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="Kapı" TextColor="{StaticResource TextMuted}" FontSize="12" />
+                                        <Label Text="{Binding GateCode}" TextColor="{StaticResource TextSecondary}" FontSize="12" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="Fiyat" TextColor="{StaticResource TextMuted}" FontSize="12" />
+                                        <Label Text="{Binding Price, StringFormat='₺{0:F0}'}" TextColor="{StaticResource TextSecondary}" FontSize="12" />
+                                    </HorizontalStackLayout>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

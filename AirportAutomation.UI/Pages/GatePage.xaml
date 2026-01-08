@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirportAutomation.UI.Pages.GatePage"
+             Title="Gate Management">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*" BackgroundColor="{StaticResource SurfaceBase}">
+            <ScrollView Grid.RowSpan="2">
+                <VerticalStackLayout Padding="16" Spacing="12" MaximumWidthRequest="900" HorizontalOptions="Center">
+                    <VerticalStackLayout Spacing="4" Margin="0,0,0,12">
+                        <Label Text="Kapı Yönetimi" Style="{StaticResource Title1}" />
+                        <Label Text="Kapı durumlarını güncelleyin, uçuş atayın." Style="{StaticResource Caption}" />
+                        <Button Text="Yenile" Clicked="OnRefreshClicked" WidthRequest="120" />
+                    </VerticalStackLayout>
+
+                    <Frame Style="{StaticResource Card}" BackgroundColor="{StaticResource SurfaceCard2}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="Seçilen Kapı" Style="{StaticResource Title2}" />
+                            <Label x:Name="SelectedGateLabel" Text="-" Style="{StaticResource Body}" />
+                            <Button Text="Kapıyı Aç/Kapat" Clicked="OnToggleGateClicked" />
+                            <Label Text="Uçuş Ata" Style="{StaticResource Body}" />
+                            <Picker x:Name="FlightPicker" Title="Uçuş Seç" ItemDisplayBinding="{Binding FlightNumber}" />
+                            <HorizontalStackLayout Spacing="10">
+                                <Button Text="Ata" Clicked="OnAssignFlightClicked" />
+                                <Button Text="Uçuşu Kaldır" Style="{StaticResource SecondaryButton}" Clicked="OnClearFlightClicked" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <CollectionView x:Name="GateView" SelectionMode="Single" SelectionChanged="OnGateSelected"
+                                    ItemsLayout="VerticalList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Margin="0,6"
+                                       CornerRadius="14"
+                                       Padding="14"
+                                       BackgroundColor="{StaticResource SurfaceCard}"
+                                       BorderColor="{StaticResource BorderLow}">
+                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="8">
+                                        <Label Grid.Row="0" Grid.Column="0"
+                                               Text="{Binding Code}"
+                                               FontAttributes="Bold"
+                                               FontSize="18"
+                                               TextColor="{StaticResource TextPrimary}" />
+                                        <Frame Grid.Row="0" Grid.Column="1"
+                                               BackgroundColor="#1D4ED8"
+                                               Padding="10,6"
+                                               CornerRadius="10"
+                                               HasShadow="False">
+                                            <Label Text="{Binding Status}" TextColor="White" FontAttributes="Bold" FontSize="12" />
+                                        </Frame>
+
+                                        <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Spacing="12">
+                                            <HorizontalStackLayout Spacing="4">
+                                                <Label Text="Uçuş" TextColor="{StaticResource TextMuted}" FontSize="12" />
+                                                <Label Text="{Binding CurrentFlightNumber}" TextColor="{StaticResource TextSecondary}" FontSize="12" />
+                                            </HorizontalStackLayout>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

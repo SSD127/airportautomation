@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Genel sayfa ve Shell -->
+    <Style TargetType="Page" ApplyToDerivedTypes="True">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource SurfaceBase}" />
+    </Style>
+
+    <Style TargetType="Shell" ApplyToDerivedTypes="True">
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource SurfaceBase}" />
+        <Setter Property="Shell.ForegroundColor" Value="{StaticResource TextPrimary}" />
+        <Setter Property="Shell.TitleColor" Value="{StaticResource TextPrimary}" />
+        <Setter Property="Shell.DisabledColor" Value="{StaticResource TextMuted}" />
+        <Setter Property="Shell.UnselectedColor" Value="{StaticResource TextMuted}" />
+        <Setter Property="Shell.NavBarHasShadow" Value="False" />
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource SurfaceCard}" />
+        <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource TextSecondary}" />
+        <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource TextPrimary}" />
+        <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource TextMuted}" />
+    </Style>
+
+    <!-- Tipografi -->
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextSecondary}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="Title1">
+        <Setter Property="TextColor" Value="{StaticResource TextPrimary}" />
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="Title2">
+        <Setter Property="TextColor" Value="{StaticResource TextPrimary}" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="Body">
+        <Setter Property="TextColor" Value="{StaticResource TextSecondary}" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="Caption">
+        <Setter Property="TextColor" Value="{StaticResource TextMuted}" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <!-- Kart -->
+    <Style TargetType="Frame" x:Key="Card">
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="Margin" Value="0,8,0,0" />
+        <Setter Property="BackgroundColor" Value="{StaticResource SurfaceCard}" />
+        <Setter Property="BorderColor" Value="{StaticResource BorderLow}" />
+    </Style>
+
+    <Style TargetType="Frame" x:Key="StatCard" BasedOn="{StaticResource Card}">
+        <Setter Property="MinimumWidthRequest" Value="140" />
+        <Setter Property="MaximumWidthRequest" Value="240" />
+        <Setter Property="FlexLayout.Basis" Value="0.3" />
+    </Style>
+
+    <Style TargetType="Frame">
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="12" />
+        <Setter Property="BackgroundColor" Value="{StaticResource SurfaceCard2}" />
+        <Setter Property="BorderColor" Value="{StaticResource BorderLow}" />
+    </Style>
+
+    <!-- Giriş alanları -->
+    <Style TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="{StaticResource SurfaceCard2}" />
+        <Setter Property="TextColor" Value="{StaticResource TextPrimary}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource TextMuted}" />
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="Margin" Value="0,4" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!-- Butonlar -->
+    <Style TargetType="Button">
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style TargetType="Button" x:Key="SecondaryButton">
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="TextColor" Value="{StaticResource TextPrimary}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource SurfaceCard2}" />
+        <Setter Property="BorderColor" Value="{StaticResource BorderLow}" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!-- Kart başlığı etiketi -->
+    <Style TargetType="Frame" x:Key="Badge">
+        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="BackgroundColor" Value="{StaticResource SurfaceCard2}" />
+        <Setter Property="BorderColor" Value="{StaticResource BorderLow}" />
+    </Style>
+
+    <!-- Checkbox -->
+    <Style TargetType="CheckBox">
+        <Setter Property="Color" Value="{StaticResource Primary}" />
+    </Style>
+
+    <!-- TabbedPage / TabBar renkleri -->
+    <Style TargetType="TabbedPage">
+        <Setter Property="BarBackgroundColor" Value="{StaticResource SurfaceCard}" />
+        <Setter Property="BarTextColor" Value="{StaticResource TextPrimary}" />
+        <Setter Property="UnselectedTabColor" Value="{StaticResource TextMuted}" />
+        <Setter Property="SelectedTabColor" Value="{StaticResource Primary}" />
+    </Style>
+</ResourceDictionary>

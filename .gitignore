@@ -1,0 +1,45 @@
+## Build outputs
+/bin/
+/obj/
+**/bin/
+**/obj/
+
+## User-specific
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.csproj.user
+
+## Logs / temp
+*.log
+*.tmp
+*.temp
+*.DS_Store
+Thumbs.db
+
+## VS / Rider / VS Code
+.vs/
+.idea/
+.vscode/
+
+## Maui / platform intermediates
+**/platforms/android/app/build/
+**/platforms/ios/build/
+**/*.keystore
+**/*.jks
+
+## Publish artifacts
+**/publish/
+*.apk
+*.aab
+
+## Packages
+packages/
+*.nupkg
+
+## Generated files
+*.db
+*.db-shm
+*.db-wal
+

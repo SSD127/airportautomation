@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirportAutomation.UI.Pages.BookingPage"
+             Title="Booking">
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Padding="16" Spacing="12" MaximumWidthRequest="720" HorizontalOptions="Center">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Yeni Bilet" FontSize="24" FontAttributes="Bold" />
+                    <Label Text="Kaynak PNR'dan bilgiler alınır, yeni uçuşa bilet oluşturulur." FontSize="12" TextColor="Gray" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="8">
+                    <Entry x:Name="SourcePnrEntry" Placeholder="Kaynak PNR (örn: PNR1234)" />
+                    <Picker x:Name="FlightPicker" Title="Uçuş Seç" ItemDisplayBinding="{Binding FlightNumber}" />
+                    <Button Text="Bilet Oluştur" Clicked="OnBookClicked" />
+                </VerticalStackLayout>
+
+                <Frame BorderColor="#ccc" CornerRadius="8" Padding="10">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Yeni Bilet" FontAttributes="Bold" />
+                        <Label x:Name="TicketLabel" Text="-" />
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+

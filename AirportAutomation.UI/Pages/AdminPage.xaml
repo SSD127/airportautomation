@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirportAutomation.UI.Pages.AdminPage"
+             Title="Admin Dashboard">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="{StaticResource SurfaceBase}">
+            <VerticalStackLayout Padding="16" Spacing="12" MaximumWidthRequest="900" HorizontalOptions="Center">
+                <VerticalStackLayout Spacing="4" Margin="0,0,0,12">
+                    <Label Text="Yönetici Paneli" Style="{StaticResource Title1}" />
+                    <Label Text="Toplam uçuş, yolcu ve ciro" Style="{StaticResource Caption}" />
+                </VerticalStackLayout>
+
+                <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" AlignItems="Stretch" Margin="0,0,0,12">
+                    <Frame Style="{StaticResource StatCard}">
+                        <VerticalStackLayout>
+                            <Label Text="Uçuş" FontAttributes="Bold" />
+                            <Label x:Name="FlightCountLabel" Text="0" FontSize="22" TextColor="{StaticResource TextPrimary}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                    <Frame Style="{StaticResource StatCard}">
+                        <VerticalStackLayout>
+                            <Label Text="Yolcu" FontAttributes="Bold" />
+                            <Label x:Name="PassengerCountLabel" Text="0" FontSize="22" TextColor="{StaticResource TextPrimary}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                    <Frame Style="{StaticResource StatCard}">
+                        <VerticalStackLayout>
+                            <Label Text="Ciro" FontAttributes="Bold" />
+                            <Label x:Name="RevenueLabel" Text="0" FontSize="22" TextColor="{StaticResource TextPrimary}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </FlexLayout>
+
+                <Frame Style="{StaticResource Card}" BackgroundColor="{StaticResource SurfaceCard}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Popüler Destinasyonlar" Style="{StaticResource Title2}" />
+                        <CollectionView x:Name="PopularView" SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*,Auto" Padding="6">
+                                        <Label Grid.Column="0" Text="{Binding Key}" TextColor="{StaticResource TextPrimary}" />
+                                        <Label Grid.Column="1" Text="{Binding Count}" TextColor="{StaticResource TextSecondary}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
+                    <Button Text="Yenile" Clicked="OnRefreshClicked" />
+                </HorizontalStackLayout>
+
+                <Frame Style="{StaticResource Card}" BackgroundColor="{StaticResource SurfaceCard}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="AI Ayarları" Style="{StaticResource Title2}" />
+                        <Label x:Name="AiSettingsStatus" FontSize="12" TextColor="{StaticResource TextMuted}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource Card}" BackgroundColor="{StaticResource SurfaceCard2}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="AI Sohbet" Style="{StaticResource Title2}" />
+                        <Editor x:Name="AiPromptEditor" Placeholder="Sorunuzu yazın" AutoSize="TextChanges" />
+                        <Button Text="Gönder" Clicked="OnSendAiClicked" />
+                        <Label x:Name="AiResponseLabel" FontSize="13" TextColor="{StaticResource TextSecondary}" />
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+

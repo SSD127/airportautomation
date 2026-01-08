@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Koyu tema paleti: ilham alınan mavi/mor/kehribar şema -->
+    <Color x:Key="SurfaceBase">#0B1220</Color>
+    <Color x:Key="SurfaceCard">#121A2D</Color>
+    <Color x:Key="SurfaceCard2">#172235</Color>
+    <Color x:Key="SurfaceOverlay">#0E1626</Color>
+
+    <Color x:Key="Primary">#3B82F6</Color>
+    <Color x:Key="PrimaryHover">#2563EB</Color>
+    <Color x:Key="Accent">#8B5CF6</Color>
+    <Color x:Key="Accent2">#F97316</Color>
+
+    <Color x:Key="TextPrimary">#E6ECF7</Color>
+    <Color x:Key="TextSecondary">#CAD5E5</Color>
+    <Color x:Key="TextMuted">#94A3B8</Color>
+
+    <Color x:Key="BorderLow">#1F2A3C</Color>
+    <Color x:Key="Success">#10B981</Color>
+    <Color x:Key="Warning">#F59E0B</Color>
+    <Color x:Key="Danger">#EF4444</Color>
+
+    <SolidColorBrush x:Key="SurfaceBaseBrush" Color="{StaticResource SurfaceBase}" />
+    <SolidColorBrush x:Key="SurfaceCardBrush" Color="{StaticResource SurfaceCard}" />
+    <SolidColorBrush x:Key="SurfaceCard2Brush" Color="{StaticResource SurfaceCard2}" />
+    <SolidColorBrush x:Key="SurfaceOverlayBrush" Color="{StaticResource SurfaceOverlay}" />
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
+    <SolidColorBrush x:Key="PrimaryHoverBrush" Color="{StaticResource PrimaryHover}" />
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource Accent}" />
+    <SolidColorBrush x:Key="Accent2Brush" Color="{StaticResource Accent2}" />
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimary}" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondary}" />
+    <SolidColorBrush x:Key="TextMutedBrush" Color="{StaticResource TextMuted}" />
+    <SolidColorBrush x:Key="BorderLowBrush" Color="{StaticResource BorderLow}" />
+</ResourceDictionary>
