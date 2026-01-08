@@ -8,6 +8,15 @@
 - `AirportAutomation.Service`: Servis implementasyonları (Flight, Passenger, Gate, Auth, Booking, Assistant).
 - `AirportAutomation.UI`: .NET MAUI istemcisi (Android, Windows). DI, sayfalar, Shell, rol bazlı sekmeler, AI istemcisi.
 
+## Katmanlar (Frontend / Backend / Entegrasyon)
+- **Frontend (UI)**: `AirportAutomation.UI` (.NET MAUI). Sekmeler, sayfalar, rol bazlı görünürlük, ikonlar, AI istemcisi. Platformlar: Android, Windows.
+- **Backend (Uygulama katmanı)**: `AirportAutomation.Service` (iş mantığı), `AirportAutomation.Interface` (sözleşmeler), `AirportAutomation.Core` (entity, context, seed). EF Core + SQLite.
+- **Entegrasyon**:
+  - AI: `Services/AiChatService.cs` (Gemini endpoint’leri, API key `Api:Key`).
+  - Google OAuth (demo): `Services/GoogleAuthService.cs` (ClientId konfigürasyonu gerekiyor).
+  - NuGet feed: `NuGet.Config` (nuget.org + opsiyonel DevExpress 25.2 offline).
+  - MAUI asset’leri: ikon/splash/font/resimler.
+
 ## Özellikler
 - Home sekmesi: Hızlı kısayollar (Flights, Gates, Passenger/Check-In, Map, AI).
 - Uçuş listesi: `MainPage`.
